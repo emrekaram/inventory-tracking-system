@@ -1,62 +1,35 @@
-# Stok Takip Uygulaması
+# inventory-tracking-system
 
-Bu proje, N-tier mimari prensiplerine dayalı olarak C# WinForms kullanılarak geliştirilmiş bir stok takip uygulamasıdır. Bu uygulama, stok yönetimi ve ürün takibi gibi temel işlevleri yerine getirir.
+Inventory tracking and sales application (ITSP), my final project for **BilgeAdam Academy**. A Windows desktop app built with C# WinForms on an N-tier architecture.
 
-### Gereksinimler
+**Status:** Archived · **Stack:** C#, .NET Framework 4.8, WinForms, SQL Server
 
-Bu projeyi çalıştırmak için aşağıdaki yazılımların bilgisayarınızda yüklü olması gerekmektedir:
+## Features
 
-- .NET Framework 4.5 veya üstü
-- Visual Studio (2017 veya daha yeni sürümü)
-- Git
+- Login and sign-up, with an admin panel for user management
+- Product management: add, edit, delete, list stock
+- Company (supplier) management
+- Customer management
+- Sales entry and sales list
 
-### Kurulum
+## Architecture
 
-1. Bu GitHub deposunu kendi hesabınıza kopyalamak için aşağıdaki komutları kullanın:
+```
+EntityLayer/        Entities: Product, Company, Customer, Sale, User
+DataAccessLayer/    Dal* classes: SQL Server queries, Connection.cs
+LogicLayer/         Logic* classes: validation and business rules
+IFAP_FINAL/         Presentation layer (WinForms): Login_SignUp, Admin, UC_* screens
+```
 
-   git clone https://github.com/EmreKaram/Project_ITSP
+The project grew out of my earlier IFAP stock-tracking app; the solution is still named `IFAP_FINAL.sln`.
 
-2. Visual Studio'yu açın ve **Proje Aç** özelliğini kullanarak projeyi yükleyin.
+## Getting started
 
-3. Projeyi başarıyla yükledikten sonra, gerektiğinde bağımlılıkları yüklemek için NuGet paketlerini geri yükleyin.
+1. Open `IFAP_FINAL.sln` in Visual Studio 2019 or later.
+2. Restore NuGet packages.
+3. Point the connection string in `DataAccessLayer/Connection.cs` at your SQL Server instance (default: local `.` instance) and create the tables.
+4. Run the `IFAP_FINAL` (PresentationLayer) project.
 
-4. Uygulamayı başlatmak için Visual Studio'da **Çalıştır** düğmesini kullanın.
+## Related
 
-### Kullanım
-
-Uygulama başlatıldığında, ana ekran karşınıza gelecektir. Ana ekran, stokta bulunan ürünleri listeler ve aynı zamanda yeni ürün eklemek veya mevcut ürünleri düzenlemek için gerekli işlevleri sunar.
-
-- **Ürün Ekle:** Yeni bir ürün eklemek için "Ürün Ekle" düğmesine tıklayın ve gerekli bilgileri girin.
-
-- **Ürün Düzenle:** Mevcut bir ürünü düzenlemek için ürün listesinden istediğiniz ürüne tıklayın ve düzenleme ekranını kullanarak değişiklikler yapın.
-
-- **Ürün Sil:** Bir ürünü silmek için ürün listesinden istediğiniz ürünü seçin ve "Ürünü Sil" düğmesine tıklayın.
-## Katkıda Bulunma
-
-Katkıda bulunmak için lütfen aşağıdaki adımları izleyin:
-
-1. Bu depoyu kendi hesabınıza "fork"layın.
-
-2. Yeni bir dal (branch) oluşturun:
-
-   git checkout -b yeni-ozellik
-
-3. Yaptığınız değişiklikleri ekleyin:
-
-   git add .
-
-4. Yaptığınız değişiklikleri taahhüt edin (commit):
-
-   git commit -m "Yeni özellik: Açıklama"
-
-5. Dalınıza (branch) itmek için:
-
-   git push origin yeni-ozellik
-
-6. Pull Request (Çekme İsteği) göndermek için bu depoya gidin ve "Compare & pull request" düğmesini seçin.
-
-7. Değişikliklerinizin incelenmesini bekleyin. Değişiklikleriniz kabul edilirse, projeye katkıda bulunmuş olacaksınız!
-
-## İletişim
-
-Herhangi bir soru veya öneriniz varsa, lütfen bize e-posta gönderin: örnek@example.com.
+- [library-management-system](https://github.com/EmreKaram/library-management-system): another BilgeAdam project
